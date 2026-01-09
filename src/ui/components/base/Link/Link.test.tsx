@@ -2,7 +2,6 @@ import React, { act } from "react";
 import { axe, fireEvent, render } from "@/test";
 import { LinkProps } from "./LinkTypes";
 import { Link } from "./Link";
-import { getByRole } from "@testing-library/dom";
 
 const TEST_ID = "LinkFacade";
 const label = "Internal Link";

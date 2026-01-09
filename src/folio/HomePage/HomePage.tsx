@@ -5,8 +5,6 @@ import {
   DefinitionTerm,
   Heading,
   Link,
-  List,
-  ListItem,
   Text,
 } from "@/ui/components";
 
@@ -45,7 +43,7 @@ export function HomePage() {
           <DefinitionTerm>Release</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="https://github.com/ShaynaProductions/react-navigation-accessible-demo/releases/tag/v0.1.1"
+              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.1.0"
               openInNewTab={true}
             >
               Accessible Base Components
