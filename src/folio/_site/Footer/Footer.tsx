@@ -1,15 +1,22 @@
 "use client";
 import { JSX } from "react";
+import { Link, Text } from "@/ui/components";
 
 export const Footer = (): JSX.Element => {
   const today = new Date();
 
   return (
     <footer>
-      <p>
+      <Text>
         <abbr title="copyright">&#169;</abbr> {today.getFullYear()}{" "}
-        <a href="https://www.shaynaproductions.com/">Shayna Productions</a>
-      </p>
+        <Link
+          href="https://www.shaynaproductions.com/"
+          openInNewTab={true}
+          suppressNewIcon={true}
+        >
+          Shayna Productions
+        </Link>
+      </Text>
     </footer>
   );
 };
