@@ -1,8 +1,9 @@
 modules.export = {
   arrowParens: "always",
   bracketSpacing: true,
-  bracketSameLine: false,
+  bracketSameLine: true,
   jsxSingleQuote: false,
+  objectWrap: "collapse",
   printWidth: 240,
   quoteProps: "as-needed",
   semi: true,

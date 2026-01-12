@@ -1,17 +1,19 @@
 "use client";
 import { JSX } from "react";
-import Link from "next/link";
+import { Heading, Link, List, ListItem } from "@/ui/components";
 
 export const Header = (): JSX.Element => {
   return (
     <header>
-      <h1>React Navigation, an Accessible Demonstration</h1>
+      <Heading headingLevel={1} variant="h2">
+        React Navigation, an Accessible Demonstration
+      </Heading>
 
-      <ul>
-        <li>
+      <List>
+        <ListItem>
           <Link href="/">Home</Link>
-        </li>
-      </ul>
+        </ListItem>
+      </List>
     </header>
   );
 };

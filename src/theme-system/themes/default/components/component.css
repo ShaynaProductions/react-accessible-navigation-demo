@@ -1,6 +1,5 @@
 @layer default-theme {
     :root {
-
         --component-border-width: var(--default-border-width);
         --component-border-radius: var(--default-border-radius);
         --component-border-color: var(--default-border-color);
@@ -24,7 +23,6 @@
 
         --component-text-color: var(--default-text-color);
 
-        /*--svg-button-min-width: calc(var(--sp-px) * 24);*/
         --svg-color: var(--default-color);
         --svg-fill: var(--default-color);
         --svg-stroke: var(--default-color);
@@ -32,7 +30,6 @@
         /* Button*/
         /* Common widths and spacing */
         --button-padding: calc(var(--sp-px) * 4) calc(var(--sp-px) * 12);
-
         --button-border-radius: calc(var(--sp-px) * 8);
         --button-border-width: calc(var(--sp-px) * 2);
         --button-font-size: inherit;
