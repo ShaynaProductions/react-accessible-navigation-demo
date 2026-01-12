@@ -11,7 +11,7 @@ describe("Icon", () => {
   it("should be WCAG compliant", async () => {
     /* Conforms to Icon AC 1 */
     const { container, getByRole } = renderIcon({ label: "New Window" });
-    expect(getByRole("img")).toBeInTheDocument();
+    expect(getByRole("graphics-symbol")).toBeInTheDocument();
 
     const results = await axe(container);
 
@@ -21,7 +21,7 @@ describe("Icon", () => {
   it("should render with aria-hidden when isSilent is true", () => {
     /* Conforms to Icon AC 2 */
     const { getByRole } = renderIcon({ isSilent: true });
-    const svgImage = getByRole("img", { hidden: true });
+    const svgImage = getByRole("graphics-symbol", { hidden: true });
     expect(svgImage).toBeInTheDocument();
   });
 
@@ -29,7 +29,7 @@ describe("Icon", () => {
     /* Conforms to Icon AC 3 */
     const logSpy = jest.spyOn(console, "error");
     const { queryByRole } = renderIcon({});
-    const svgImage = queryByRole("img");
+    const svgImage = queryByRole("graphics-symbol");
     expect(svgImage).not.toBeInTheDocument();
     expect(logSpy).toHaveBeenCalledWith(
       "Dev Error - WCAG 1.1.1: Label must be provided when isSilent is not set.",
@@ -39,7 +39,7 @@ describe("Icon", () => {
     /* Conforms to Icon AC 3 */
     const logSpy = jest.spyOn(console, "error");
     const { queryByRole } = renderIcon({ isSilent: true, label: "Silent" });
-    const svgImage = queryByRole("img");
+    const svgImage = queryByRole("graphics-symbol");
     expect(svgImage).not.toBeInTheDocument();
     expect(logSpy).toHaveBeenCalledWith(
       "Dev Error: WCAG 1.1.1 Label may not be defined when isSilent is set to true.",

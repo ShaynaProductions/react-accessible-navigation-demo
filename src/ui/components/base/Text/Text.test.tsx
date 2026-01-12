@@ -15,7 +15,7 @@ const renderText = (optProps: TextProps) => {
 describe("<Text />", () => {
   it("should be WCAG compliant as a Phrase control", async () => {
     /* Conforms to Text AC 2 */
-    const optProps = { isInline: true, testId: TEST_ID };
+    const optProps = { isInline: true };
     const { container } = renderText(optProps);
 
     const results = await axe(container);
@@ -35,7 +35,7 @@ describe("<Text />", () => {
 
   it("should load as inline", () => {
     /* Conforms to Text AC 2 */
-    const optProps = { isInline: true, testId: TEST_ID };
+    const optProps = { isInline: true };
     const { getByTestId } = renderText(optProps);
 
     expect(getByTestId(TEST_ID)).toBeInTheDocument();
@@ -43,7 +43,7 @@ describe("<Text />", () => {
 
   it("should be visually hidden when isHidden is true", () => {
     /* Conforms to Text AC 1 */
-    const optProps = { isHidden: true, testId: TEST_ID };
+    const optProps = { isHidden: true };
     const { container } = renderText(optProps);
 
     expect(container.getElementsByClassName("srOnly")).toHaveLength(1);

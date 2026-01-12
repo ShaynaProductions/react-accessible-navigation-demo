@@ -1,6 +1,5 @@
 import React from "react";
 import { type LinkProps as NextLinkProps } from "next/link";
-import { Url } from "next/dist/shared/lib/router/router";
 import { BaseProps } from "@/ui/types";
 
 export type LinkTargets = "_self" | "_blank" | "_parent" | "_top";
@@ -27,7 +26,7 @@ export interface LinkProps
   /**
    *  URL for link.  May be (native) HTML or router (client)
    */
-  href: Url;
+  href: string;
   /**
    * default (undefined). When true sets data-focused
    */

@@ -1,15 +1,17 @@
 "use client";
 import React, { JSX } from "react";
-import classNames from "classnames";
 import {
   Box,
   Button,
   Heading,
+  Icon,
   Link,
   List,
   ListItem,
   Text,
 } from "@/ui/components";
+import { ChevronRightIcon } from "@/ui/svg";
+import { Orientation } from "@/ui/types";
 
 interface ComponentsProps {
   cx?: string;
@@ -23,16 +25,21 @@ export function Components({ cx, headingLevel }: ComponentsProps): JSX.Element {
   const [listOpen, setListOpen] = React.useState(false);
   const [textOpen, setTextOpen] = React.useState(false);
 
-  const buttonClass = classNames({ srOnly: !buttonOpen });
-  const buttonText = !buttonOpen
-    ? "Display Button Component"
-    : "Hide Button Component";
-  const linkClass = classNames("link", { srOnly: !linkOpen });
-  const linkText = !linkOpen ? "Display Link Component" : "Hide Link Component";
-  const listClass = classNames("list", { srOnly: !listOpen });
-  const listText = !listOpen ? "Display List Component" : "Hide List Component";
-  const headingClass = classNames("heading", { srOnly: !headingOpen });
-  const textClass = classNames("text", { srOnly: !textOpen });
+  const buttonLabel = !buttonOpen
+    ? "Display Button Information"
+    : "Hide Button Information";
+  const headingLabel = !headingOpen
+    ? "Display Heading Information"
+    : "Hide Heading Information";
+  const linkLabel = !linkOpen
+    ? "Display Link Information"
+    : "Hide Link Information";
+  const listLabel = !listOpen
+    ? "Display List Information"
+    : "Hide List Information";
+  const textLabel = !textOpen
+    ? "Display Text Information"
+    : "Hide Text Information";
 
   const handleButtonPress = () => {
     setButtonOpen(!buttonOpen);
@@ -51,12 +58,27 @@ export function Components({ cx, headingLevel }: ComponentsProps): JSX.Element {
     setTextOpen(!textOpen);
   };
 
+  const listProps = {
+    cx: cx,
+    orientation: "horizontal" as Orientation,
+    style: {
+      "--component-item-size": 24,
+    } as React.CSSProperties,
+  };
+
   return (
-    <List cx={cx} orientation="horizontal">
-      <ListItem cx="text">
-        <Button onPress={handleTextPress}>Display Text Component</Button>
-        {buttonOpen && (
-          <>
+    <List {...listProps}>
+      <ListItem>
+        <Button
+          aria-expanded={textOpen}
+          aria-controls="text"
+          onPress={handleTextPress}
+        >
+          {textLabel}
+          <Icon IconComponent={ChevronRightIcon} isSilent={true} />
+        </Button>
+        {textOpen && (
+          <Box cx="text" id="text">
             <Heading headingLevel={headingLevel}>Text Component</Heading>
             <Text>
               A Text component encapsulates content within either a &lt;p /&gt;
@@ -64,44 +86,79 @@ export function Components({ cx, headingLevel }: ComponentsProps): JSX.Element {
               hiding the text visually, while still allowing it to be in the DOM
               for screen readers adds to the tags basic functionality.
             </Text>
-          </>
+          </Box>
         )}
       </ListItem>
 
-      <ListItem cx="heading">
-        <Button onPress={handleHeadingPress}>Display Heading Component</Button>
+      <ListItem>
+        <Button
+          aria-expanded={headingOpen}
+          aria-controls="heading"
+          onPress={handleHeadingPress}
+        >
+          {headingLabel}
+          <Icon IconComponent={ChevronRightIcon} isSilent={true} />
+        </Button>
         {headingOpen && (
-          <>
+          <Box cx="heading" id="heading">
             <Heading headingLevel={headingLevel}>Heading Component</Heading>
             <Text>
               A Heading component allows for display of &lt;H1 /&gt; - &lt;H6
               /&gt; tags in a uniform manner. As with the Text component,
-              additional modifications are added to hide headings from the
-              screen while still exposing them to screen readers.
+              additional modifications are added to allow for hiding headings
+              from the screen while still exposing them to screen readers.
             </Text>
-          </>
+          </Box>
         )}
       </ListItem>
 
-      <ListItem cx="link">
-        <Button onPress={handleLinkPress}>{linkText} </Button>
+      <ListItem>
+        <Button
+          aria-expanded={listOpen}
+          aria-controls="list"
+          onPress={handleListPress}
+        >
+          {listLabel} <Icon IconComponent={ChevronRightIcon} isSilent={true} />
+        </Button>
+        {listOpen && (
+          <Box cx="list" id="list">
+            <Heading headingLevel={headingLevel}>
+              List and ListItem Components
+            </Heading>
+            <Text>
+              List and ListItem Components wrap around their HTML counterparts,
+              to render consistently and allow minimal styling for vertical or
+              horizontal display.
+            </Text>
+          </Box>
+        )}
+      </ListItem>
+
+      <ListItem>
+        <Button
+          aria-expanded={linkOpen}
+          aria-controls="link"
+          onPress={handleLinkPress}
+        >
+          {linkLabel} <Icon IconComponent={ChevronRightIcon} isSilent={true} />
+        </Button>
         {linkOpen && (
-          <>
+          <Box cx="link" id="link">
             <Heading headingLevel={headingLevel}>Link Component</Heading>
             <Text>
               A link component renders the &lt;a /&gt; element, adding
               consistent base styling and exposing all html attributes.
             </Text>
             <Text>
-              The component used in this demonstration implements a facade of
-              the{" "}
+              The component used in this demonstration implements wrapping the{" "}
               <Link
                 href="https://nextjs.org/docs/app/api-reference/components/link"
                 openInNewTab={true}
               >
                 Next.js/Link
               </Link>
-              , adding a variety of accessibility and security features.
+              component, along with adding a variety of accessibility and
+              security features.
             </Text>
             <Text>
               Whether creating something new or evaluating a third party link
@@ -117,14 +174,21 @@ export function Components({ cx, headingLevel }: ComponentsProps): JSX.Element {
               <abbr title="Web Content Accessibility Guidelines">WCAG</abbr>{" "}
               references.
             </Text>
-          </>
+          </Box>
         )}
       </ListItem>
 
-      <ListItem cx="button">
-        <Button onPress={handleButtonPress}>{buttonText}</Button>
+      <ListItem>
+        <Button
+          aria-expanded={buttonOpen}
+          aria-controls="button"
+          onPress={handleButtonPress}
+        >
+          {buttonLabel}{" "}
+          <Icon IconComponent={ChevronRightIcon} isSilent={true} />
+        </Button>
         {buttonOpen && (
-          <>
+          <Box cx="button" id="button">
             <Heading headingLevel={headingLevel}>Button Component </Heading>
             <Text>
               Button components should render the HTML &lt;button /&gt; element.
@@ -167,22 +231,7 @@ export function Components({ cx, headingLevel }: ComponentsProps): JSX.Element {
                 </Text>
               </ListItem>
             </List>
-          </>
-        )}
-      </ListItem>
-      <ListItem cx="list">
-        <Button onPress={handleListPress}> {listText}</Button>
-        {listOpen && (
-          <>
-            <Heading headingLevel={headingLevel}>
-              List and ListItem Components
-            </Heading>
-            <Text>
-              List and ListItem Components wrap around their html counterparts,
-              to render consistently and allow minimal styling for vertical or
-              horizontal display.
-            </Text>
-          </>
+          </Box>
         )}
       </ListItem>
     </List>

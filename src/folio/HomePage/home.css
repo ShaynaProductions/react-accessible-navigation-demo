@@ -16,8 +16,8 @@
         }
 
         & .intro {
-          
-            & p{
+
+            & p {
 
                 line-height: calc(var(--sp-px) * 28);
             }
@@ -57,12 +57,12 @@
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                              align-content: space-evenly;
+                align-content: space-evenly;
                 justify-content: space-between;
                 padding-left: calc(var(--sp-px) * 24);
 
                 & li {
-                   font-size: calc(var(--sp-px) * 18);
+                    font-size: calc(var(--sp-px) * 18);
                     width: 40%;
 
                     &:nth-child(even) {
@@ -71,13 +71,14 @@
 
                 }
             }
+
             & dl {
+                --dt-width: calc(var(--sp-px) * (8 * 16));
                 font-size: calc(var(--sp-px) * 16);
-                --dt-width: calc(var(--sp-px) * (5 * 16));
                 margin-bottom: calc(var(--sp-px) * 16);
 
                 & dt {
-                    color: var(--red-7);
+                    color: var(--purple-7);
                     display: inline-block;
                     font-weight: bolder;
                     padding-right: calc(var(--sp-px) * 8);
@@ -88,8 +89,6 @@
                     &:after {
                         content: ":";
                     }
-
-
                 }
 
                 & dd {

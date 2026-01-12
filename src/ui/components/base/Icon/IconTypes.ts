@@ -3,7 +3,7 @@ import { BaseProps } from "@/ui/types";
 
 export interface IconProps extends BaseProps {
   /**
-   * react-icon to pass through and display.
+   * react-icon svg to pass through and display.
    */
   IconComponent: IconType;
 

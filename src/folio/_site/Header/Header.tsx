@@ -1,6 +1,6 @@
 "use client";
 import { JSX } from "react";
-import { Heading, Link } from "@/ui/components";
+import { Heading, Link, List, ListItem } from "@/ui/components";
 
 export const Header = (): JSX.Element => {
   return (
@@ -9,11 +9,11 @@ export const Header = (): JSX.Element => {
         React Navigation, an Accessible Demonstration
       </Heading>
 
-      <ul>
-        <li>
+      <List>
+        <ListItem>
           <Link href="/">Home</Link>
-        </li>
-      </ul>
+        </ListItem>
+      </List>
     </header>
   );
 };

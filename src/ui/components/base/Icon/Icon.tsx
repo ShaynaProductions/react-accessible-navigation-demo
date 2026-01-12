@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { returnTrueElementOrUndefined } from "@/ui/utllities";
 import { IconProps } from "./IconTypes";
 
@@ -33,9 +34,9 @@ export default function Icon({
     const iconProps = {
       "aria-hidden": returnTrueElementOrUndefined(!!isSilent),
       "aria-label": label,
-      className: cx,
+      className: classNames("svg-icon", cx),
       "data-testid": testId,
-      role: "img",
+      role: "graphics-symbol",
     };
 
     return (

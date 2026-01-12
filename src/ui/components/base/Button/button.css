@@ -63,14 +63,6 @@
             --button-color: var(--button-color-hovered);
             --svg-color: var(--button-color-hovered);
             --svg-fill: var(--button-fill-hovered);
-
-            &:focus-visible, &[data-focused="true"] {
-                --button-background: var(--button-background-focused);
-                --button-border-color: var(--button-border-color-focused);
-                --button-color: var(--button-color-focused);
-                --svg-color: var(--button-color-focused);
-                --svg-fill: var(--button-fill-focused);
-            }
         }
     }
 }

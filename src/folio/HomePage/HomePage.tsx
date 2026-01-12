@@ -13,8 +13,8 @@ export function HomePage() {
     <Box id="home-view">
       <Box cx="intro">
         <Text>
-          This code base is provided as a progressive example of an accessible
-          React navigation component. It is accompanied by a{" "}
+          This code base is provided as a progressive example of developing an
+          accessible React navigation component. It is accompanied by a{" "}
           <Link href="https://dev.to/shaynaproductions/" openInNewTab={true}>
             set of articles hosted on Dev.to
           </Link>
@@ -27,14 +27,14 @@ export function HomePage() {
           <DefinitionTerm>Article</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="https://dev.to/shaynaproductions/base-components-are-key-to-accessibility-2bd8"
+              href="https://dev.to/shaynaproductions/foundational-accessibility-begins-with-the-base-components-4f5p"
               openInNewTab={true}
             >
-              Base Components are key to accessibility
+              Foundational Accessibility Begins with the Base Components
             </Link>
             <br />
           </DefinitionDetail>
-          <DefinitionTerm>Page</DefinitionTerm>
+          <DefinitionTerm>Example Page</DefinitionTerm>
           <DefinitionDetail>
             <Link href="/base-components">
               Examples of Accessible Base Components
@@ -43,7 +43,7 @@ export function HomePage() {
           <DefinitionTerm>Release</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.1.0"
+              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.2.0"
               openInNewTab={true}
             >
               Accessible Base Components

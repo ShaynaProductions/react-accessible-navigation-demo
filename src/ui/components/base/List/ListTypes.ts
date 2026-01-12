@@ -19,10 +19,9 @@ export interface ListProps extends BaseProps {
   isOrdered?: boolean;
 
   /**
-   * horizontal | vertical
+   * "horizontal" | "vertical" (default)
    */
   orientation?: Orientation;
-  /**
 
   /**
    *     "list" (default) | "menu" | "tree"
@@ -40,11 +39,6 @@ export interface ListItemProps extends BaseProps {
    * Unique key for each item
    */
   key?: string;
-
-  /**
-   * RefObject<HTMLLIElement | null>
-   */
-  ref?: React.RefObject<HTMLLIElement | null>;
 
   /**
    * "listItem" (default)  | "menuitem" | "treeitem"

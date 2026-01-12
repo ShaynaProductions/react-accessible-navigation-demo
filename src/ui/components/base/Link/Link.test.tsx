@@ -59,7 +59,7 @@ describe("<Link />", () => {
     const link = getByTestId(`${TEST_ID}`);
     expect(link).toBeInTheDocument();
 
-    const svg = getByRole("img");
+    const svg = getByRole("graphics-symbol");
     expect(svg).toBeInTheDocument();
 
     expect(link).toHaveAttribute("target", "_blank");
@@ -88,7 +88,7 @@ describe("<Link />", () => {
   });
 
   it("should handle an onFocusEvent when onFocus is triggered", () => {
-    /* Conforms to Link AC5 */
+    /* Conforms to Link AC 5 */
     const handleOnFocus = jest.fn();
 
     const optProps = { onFocus: handleOnFocus };
@@ -102,7 +102,7 @@ describe("<Link />", () => {
     expect(handleOnFocus).toHaveBeenCalled();
   });
   it("should handle an onBlurEvent when onBlur is triggered", async () => {
-    /* Conforms to Link AC5 */
+    /* Conforms to Link AC 5 */
     const handleOnBlur = jest.fn();
     const handleOnFocus = jest.fn();
 
@@ -123,7 +123,7 @@ describe("<Link />", () => {
   });
 
   it("should handle onHoverEvents when onMouseEnter is triggered", async () => {
-    /* Conforms to Link AC5 */
+    /* Conforms to Link AC 5 */
     const handleMouseEnter = jest.fn();
     const handleMouseLeave = jest.fn();
 
@@ -156,7 +156,7 @@ describe("<Link />", () => {
 
     const link = getByTestId(TEST_ID);
     expect(link).toBeInTheDocument();
-    expect(link).not.toHaveAttribute("data-hovered", "true");
+    expect(link).not.toHaveAttribute("data-hovered");
   });
 
   it("should have a data-hovered attribute when isHovered is true", () => {
@@ -178,7 +178,7 @@ describe("<Link />", () => {
 
     const link = getByTestId(TEST_ID);
     expect(link).toBeInTheDocument();
-    expect(link).not.toHaveAttribute("data-focused", "true");
+    expect(link).not.toHaveAttribute("data-focused");
   });
 
   it("should have a data-focused attribute when isFocused is true", () => {

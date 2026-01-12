@@ -8,8 +8,8 @@ import { TextProps } from "./TextTypes";
 export default function Text({
   children,
   cx,
-  isInline,
   isHidden,
+  isInline,
   testId,
   ...rest
 }: TextProps): JSX.Element {

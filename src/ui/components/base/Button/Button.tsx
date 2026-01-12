@@ -18,7 +18,7 @@ export default function Button({
     "aria-disabled": returnTrueElementOrUndefined(!!isDisabled),
     className: cx,
     "data-testid": testId,
-    onPress: isDisabled ? undefined : onPress,
+    onPress: returnTrueElementOrUndefined(!isDisabled, onPress),
   };
 
   return <RACButton {...buttonProps}>{children}</RACButton>;
