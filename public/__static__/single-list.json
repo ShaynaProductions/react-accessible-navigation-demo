@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Home",
+    "id": "home",
+    "href": "/"
+  },
+  {
+    "label": "Accessible Base Components",
+    "href": "/examples/base-components",
+    "id": "base-components"
+  },
+  {
+    "label": "Single List Links",
+    "id": "links-single",
+    "href": "/examples/single-links"
+  },
+  {
+    "label": "Desktop All Buttons",
+    "id": "desktop-buttons",
+    "href": "/examples/desktop-buttons"
+  },
+  {
+    "label": "Desktop Link Ends",
+    "id": "desktop-link-ends",
+    "href": "/examples/desktop-link-ends"
+  }
+]

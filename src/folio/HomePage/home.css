@@ -1,7 +1,7 @@
 @layer main {
     #home-view {
         width: 100%;
-        padding: calc(var(--sp-px) * 16);
+        padding: 0 calc(var(--sp-px) * 16);
         display: flex;
         flex-direction: column;
 
@@ -16,29 +16,18 @@
         }
 
         & .intro {
-
             & p {
-
                 line-height: calc(var(--sp-px) * 28);
             }
         }
 
         & .examples {
-            margin-top: calc(var(--sp-px) * 16);
             width: 100%;
-
             & ul {
-                flex-wrap: wrap;
-                align-content: end;
-                justify-content: space-between;
                 padding-left: calc(var(--sp-px) * 24);
 
                 & li {
-                    width: 40%;
-
-                    &:nth-child(even) {
-                        padding-right: calc(var(--sp-px) * 24);
-                    }
+                    width: 90%;
                 }
 
                 & p {
@@ -63,7 +52,6 @@
 
                 & li {
                     font-size: calc(var(--sp-px) * 18);
-                    width: 40%;
 
                     &:nth-child(even) {
                         padding-right: calc(var(--sp-px) * 24);
@@ -78,7 +66,7 @@
                 margin-bottom: calc(var(--sp-px) * 16);
 
                 & dt {
-                    color: var(--purple-7);
+                    color: var(--purple-8);
                     display: inline-block;
                     font-weight: bolder;
                     padding-right: calc(var(--sp-px) * 8);

@@ -5,7 +5,7 @@ export interface DefinitionListProps extends BaseProps {
   children: React.ReactNode;
 }
 
-export interface DefinitionDetailPrpps extends BaseProps {
+export interface DefinitionDetailProps extends BaseProps {
   children: React.ReactNode;
 }
 
