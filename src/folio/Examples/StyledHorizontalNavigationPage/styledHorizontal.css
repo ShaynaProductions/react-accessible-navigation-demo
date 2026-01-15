@@ -1,0 +1,28 @@
+@layer main {
+    .horizontal-layout{
+        & a[href] {
+            &[aria-current='page'] {
+                border-style: dotted;
+                border-color: var(--component-border-color);
+            }
+        }
+
+        & button {
+            --button-background: var(--button-ghost-background);
+            --button-border-color: var(--button-ghost-border);
+            --button-padding: calc(var(--sp-px) * 4);
+            --button-color: var(--button-ghost-color);
+
+            & svg {
+                --svg-fill: var(--purple-10);
+                padding-left: calc(var(--sp-px) * 8);
+            }
+            
+            &:hover,
+            &[data-hovered] {
+                --button-ghost-background: var(--button-background-hovered);
+                --button-ghost-border: var(--button-border-color-hovered);
+            }
+        }
+    }
+}

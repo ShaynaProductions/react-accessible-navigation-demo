@@ -20,7 +20,7 @@ const renderDefinitionList = () => {
       <DefinitionTerm>argot</DefinitionTerm>
       <DefinitionDetail>
         the language used by a particular group of people; an often more or less
-        secret vocabulary and idiom pecular to a particular group.
+        secret vocabulary and idiom peculiar to a particular group.
       </DefinitionDetail>
     </DefinitionList>,
   );

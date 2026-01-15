@@ -5,8 +5,17 @@ import {
   DefinitionTerm,
   Heading,
   Link,
+  List,
+  ListItem,
   Text,
 } from "@/ui/components";
+import {
+  MultipleListButtons,
+  MultipleListLinkEnds,
+  SingleList,
+  StyledHorizontal,
+  StyledVertical,
+} from "./sections/";
 
 export function HomePage() {
   return (
@@ -22,34 +31,99 @@ export function HomePage() {
       </Box>
       <Box cx="latest-release">
         <Heading headingLevel={2}>Latest Release</Heading>
-        <Heading headingLevel={3}>Accessible Base Components</Heading>
+        <Heading headingLevel={3}>Basic Structure Implementation</Heading>
         <DefinitionList>
           <DefinitionTerm>Article</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="https://dev.to/shaynaproductions/foundational-accessibility-begins-with-the-base-components-4f5p"
+              href="(https://dev.to/shaynaproductions/structure-and-transformation-first-steps-in-navigation-implementation-248"
               openInNewTab={true}
             >
-              Foundational Accessibility Begins with the Base Components
+              Structure and Transformation: First Steps in Navigation
+              Implementation
             </Link>
             <br />
-          </DefinitionDetail>
-          <DefinitionTerm>Example Page</DefinitionTerm>
-          <DefinitionDetail>
-            <Link href="/base-components">
-              Examples of Accessible Base Components
-            </Link>
           </DefinitionDetail>
           <DefinitionTerm>Release</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.2.0"
+              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.3.0"
               openInNewTab={true}
             >
-              Accessible Base Components
+              Implementing the Basic Navigation Structure
             </Link>
           </DefinitionDetail>
         </DefinitionList>
+      </Box>
+      <Box cx="examples">
+        <Heading headingLevel={2}>Examples</Heading>
+        <Text>
+          The examples in this codebase represent the progression of the code as
+          completed in the latest release and article. Each release layers upon
+          the previous code to progressively enhance a main navigation
+          component. The source code for this release is fully typed and tested.
+        </Text>
+        <Text>
+          Current Examples provide differing desktop navigation scenarios which
+          currently implement a base navigation structure accessible by screen,
+          screen reader, mouse and the TAB key.
+        </Text>
+        <List>
+          <ListItem>
+            <SingleList />
+          </ListItem>
+          <ListItem>
+            <MultipleListButtons />
+          </ListItem>
+          <ListItem>
+            <MultipleListLinkEnds />
+          </ListItem>
+          <ListItem>
+            <StyledHorizontal />
+          </ListItem>
+          <ListItem>
+            <StyledVertical />
+          </ListItem>
+        </List>
+      </Box>
+      <Box cx="prev-releases">
+        <Heading headingLevel={2}>Previous Releases</Heading>
+        <Text>
+          Explore the previous releases in this series. Each release is
+          associated with an article along with the tagged github repository.
+        </Text>
+        <List>
+          <ListItem>
+            <Heading headingLevel={3}>Accessible Base Components</Heading>
+            <DefinitionList>
+              <DefinitionTerm>Article</DefinitionTerm>
+              <DefinitionDetail>
+                <Link
+                  href="https://dev.to/shaynaproductions/foundational-accessibility-begins-with-the-base-components-4f5p"
+                  openInNewTab={true}
+                >
+                  Foundational Accessibility Begins with the Base Components
+                </Link>
+                <br />
+              </DefinitionDetail>
+              <DefinitionTerm>Example Page</DefinitionTerm>
+              <DefinitionDetail>
+                <Link href="/base-components">
+                  Examples of Accessible Base Components
+                </Link>
+              </DefinitionDetail>
+              <DefinitionTerm>Release</DefinitionTerm>
+              <DefinitionDetail>
+                <Link
+                  href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.2.0"
+                  openInNewTab={true}
+                >
+                  Accessible Base Components
+                </Link>
+              </DefinitionDetail>
+            </DefinitionList>
+          </ListItem>
+        </List>
       </Box>
     </Box>
   );

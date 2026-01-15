@@ -23,5 +23,5 @@ You will now have a fully working example site located at localhost:3000/
 ## DEV Articles in the Accessible React Navigation Component Series
 
 Each published article is linked and will refer to the appropriate Github tag to download and follow along.
-- [Foundational Accessibility Begins with the Base Components](https://dev.to/shaynaproductions/foundational-accessibility-begins-with-the-base-components-4f5p)
-
+1. [Foundational Accessibility Begins with the Base Components](https://dev.to/shaynaproductions/foundational-accessibility-begins-with-the-base-components-4f5p)
+2. [Structure and Transformation: First Steps in Navigation Implementation](https://dev.to/shaynaproductions/structure-and-transformation-first-steps-in-navigation-implementation-248)

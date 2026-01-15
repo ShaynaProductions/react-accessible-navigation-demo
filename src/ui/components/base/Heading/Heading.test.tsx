@@ -38,7 +38,7 @@ describe("<Heading />", () => {
 
     expect(text).toBeInTheDocument();
   });
-  it("should render as an h2 when no headinglevel is passed", () => {
+  it("should render as an h2 when no headingLevel is passed", () => {
     /* Conforms to Heading AC 2 */
     const { getByRole } = renderHeading({});
     const component = getByRole("heading", { level: 2 });

@@ -1,10 +1,10 @@
-import { type DefinitionDetailPrpps } from "./DefinitionListTypes";
+import { type DefinitionDetailProps } from "./DefinitionListTypes";
 
 export function DefinitionDetail({
   children,
   cx,
   ...rest
-}: DefinitionDetailPrpps) {
+}: DefinitionDetailProps) {
   const definitionDetailProps = {
     ...rest,
     className: cx,
