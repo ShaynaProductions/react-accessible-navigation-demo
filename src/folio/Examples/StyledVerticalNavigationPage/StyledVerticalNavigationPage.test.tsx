@@ -1,10 +1,7 @@
 import React, { act } from "react";
 import fs from "fs";
 import { axe, render } from "@/test";
-import {
-  MultipleListButtonsPage,
-  StyledVerticalNavigationPage,
-} from "@/folio/Examples";
+import { StyledVerticalNavigationPage } from "@/folio/Examples";
 
 const jsonObj = fs.readFileSync(
   "src/ui/__static__/multiple-lists-buttons.json",
