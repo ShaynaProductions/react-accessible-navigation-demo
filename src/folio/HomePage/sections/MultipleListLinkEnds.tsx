@@ -11,8 +11,8 @@ export function MultipleListLinkEnds() {
         </Link>
       </Heading>
       <Text>
-        An example of a multiple list navigation component where the the top row
-        consists of both links and buttons.
+        An example of a multiple list horizontally aligned navigation component
+        where the the top row consists of both links and buttons.
       </Text>
     </>
   );

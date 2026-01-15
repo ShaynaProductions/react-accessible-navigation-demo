@@ -1,10 +1,10 @@
 import React, { act } from "react";
 import fs from "fs";
 import { axe, render } from "@/test";
-import { MultipleListLinkEndsPage } from "@/folio/Examples";
+import { StyledHorizontalNavigationPage } from "@/folio/Examples";
 
 const jsonObj = fs.readFileSync(
-  "src/ui/__static__/multiple-lists-link-ends.json",
+  "src/ui/__static__/multiple-lists-buttons.json",
   "utf8",
 );
 const data = {
@@ -12,10 +12,10 @@ const data = {
 };
 
 const renderPage = () => {
-  return render(<MultipleListLinkEndsPage data={data} />);
+  return render(<StyledHorizontalNavigationPage data={data} />);
 };
 
-describe("MultipleListLinkEndsPage", () => {
+describe("StyledHorizontalNavigationPage", () => {
   it("renders and passes automatic wcag", async () => {
     const { container } = renderPage();
     const results = await act(() => axe(container));

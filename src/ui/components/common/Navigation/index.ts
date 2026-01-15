@@ -1,7 +1,7 @@
-export { Navigation, NavigationLink, SubNavigation } from "./components";
+export { Navigation, NavigationItem, SubNavigation } from "./components";
 export { transformNavigation } from "./utilities";
 export type {
   NavigationProps,
-  NavigationLinkProps,
+  NavigationItemProps,
   SubNavigationProps,
 } from "./components/NavigationTypes";

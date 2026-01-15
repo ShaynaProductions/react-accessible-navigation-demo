@@ -4,17 +4,19 @@ import { MultipleListLinkEndsPage } from "@/folio/Examples";
 import "./page.css";
 
 const jsonObj = fs.readFileSync(
-  "public/__static__/multiple-lists-link-ends.json",
+  "src/ui/__static__/multiple-lists-link-ends.json",
   "utf8",
 );
-const nav = JSON.parse(jsonObj);
+const data = {
+  navigationArray: JSON.parse(jsonObj),
+};
 
 export const metadata: Metadata = {
   title: "Multiple Lists with Link Ends Example",
 };
 
 export default async function MultipleListLinkEndsExample() {
-  if (nav) {
-    return <MultipleListLinkEndsPage navigation={nav} />;
+  if (data.navigationArray) {
+    return <MultipleListLinkEndsPage data={data} />;
   }
 }

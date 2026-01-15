@@ -1,17 +1,17 @@
 "use client";
 import { Fragment, ReactNode } from "react";
 import {
-  NavigationLink,
-  NavigationLinkProps,
+  NavigationItem,
+  NavigationItemProps,
   SubNavigation,
 } from "@/ui/components";
 
 export function transformNavigation(
-  mainMenu: NavigationLinkProps[],
+  navigationArray: NavigationItemProps[],
   testId?: string,
 ): Iterable<ReactNode> {
-  return mainMenu.map((item) => (
-    <Fragment key={`menu-${item.id}`}>
+  return navigationArray.map((item) => (
+    <Fragment key={`navigation-${item.id}`}>
       {item.menu ? (
         <SubNavigation
           key={item.id}
@@ -22,7 +22,7 @@ export function transformNavigation(
           {transformNavigation(item.menu, testId)}
         </SubNavigation>
       ) : (
-        <NavigationLink
+        <NavigationItem
           id={item.id}
           key={item.id}
           label={item.label}

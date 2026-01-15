@@ -2,7 +2,7 @@
   {
     "label": "Community",
     "id": "community-menu",
-    "href": "/#community",
+    "href": "",
     "menu": [
       {
         "label": "Musings",
@@ -19,7 +19,7 @@
   {
     "label": "Stories and Commentary",
     "id": "stories-menu",
-    "href": "#",
+    "href": "",
     "menu": [
       {
         "label": "Search",
@@ -51,7 +51,7 @@
       {
         "label": "Find Your Next Story",
         "id": "find-next-story",
-        "href": "/#",
+        "href": "",
         "menu": [
           {
             "label": "By Storyteller",
@@ -70,7 +70,7 @@
   {
     "label": "Reference",
     "id": "reference-menu",
-    "href": "#",
+    "href": "",
     "menu": [
       {
         "label": "Appendices",
@@ -92,7 +92,7 @@
   {
     "label": "About",
     "id": "about-menu",
-    "href": "#",
+    "href": "",
     "menu": [
       {
         "label": "About the Site",

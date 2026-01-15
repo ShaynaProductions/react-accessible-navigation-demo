@@ -13,6 +13,8 @@ import {
   MultipleListButtons,
   MultipleListLinkEnds,
   SingleList,
+  StyledHorizontal,
+  StyledVertical,
 } from "./sections/";
 
 export function HomePage() {
@@ -75,6 +77,12 @@ export function HomePage() {
           </ListItem>
           <ListItem>
             <MultipleListLinkEnds />
+          </ListItem>
+          <ListItem>
+            <StyledHorizontal />
+          </ListItem>
+          <ListItem>
+            <StyledVertical />
           </ListItem>
         </List>
       </Box>

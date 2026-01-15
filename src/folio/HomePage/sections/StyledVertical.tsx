@@ -2,14 +2,14 @@
 
 import { Heading, Link, Text } from "@/ui/components";
 
-export function SingleList() {
+export function StyledVertical() {
   return (
     <>
       <Heading headingLevel={3}>
-        <Link href="/examples/single-list">Single List</Link>
+        <Link href="/examples/styled-vertical">Vertical Design</Link>
       </Heading>
       <Text>
-        A simple example of a single list of links in a horizontal alignment
+        Design Ready vertically oriented structure ready to be styled.
       </Text>
     </>
   );

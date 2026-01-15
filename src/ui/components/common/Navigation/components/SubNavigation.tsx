@@ -29,7 +29,7 @@ export default function SubNavigation({
   const buttonProps: ButtonProps = {
     "aria-controls": id,
     "aria-expanded": isSubListOpen,
-    "aria-label": `${label} (navigation)`,
+    "aria-label": `${label} (subnavigation)`,
     onPress: handlePress,
   };
 

@@ -52,6 +52,10 @@
         &[data-hovered] {
             --button-ghost-background: var(--button-background-hovered);
         }
+        &[aria-current='page'] {
+            border-style: dotted;
+            border-color: var(--component-border-color);
+        }
     }
 }
 

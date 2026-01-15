@@ -11,8 +11,8 @@ export function MultipleListButtons() {
         </Link>
       </Heading>
       <Text>
-        An example of a multiple list navigation component where the entire top
-        row is composed of buttons.
+        An example of a multiple list, horizontally aligned navigation component
+        where the entire top row is composed of buttons.
       </Text>
     </>
   );

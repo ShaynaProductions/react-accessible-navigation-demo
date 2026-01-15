@@ -6,11 +6,17 @@ import { NavigationList } from "./";
 
 export default function Navigation({
   children,
+  cx,
   isOpen = true,
   label,
   orientation = "horizontal",
   ...rest
 }: NavigationProps): JSX.Element {
+  const navigationProps = {
+    "aria-label": label,
+    className: cx,
+  };
+
   const navigationListProps: NavigationListProps = {
     ...rest,
     isOpen: isOpen,
@@ -19,7 +25,7 @@ export default function Navigation({
 
   return (
     <>
-      <nav aria-label={label}>
+      <nav {...navigationProps}>
         <NavigationList {...navigationListProps}>{children}</NavigationList>
       </nav>
     </>

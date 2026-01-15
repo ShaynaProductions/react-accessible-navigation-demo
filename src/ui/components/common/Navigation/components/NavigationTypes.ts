@@ -26,7 +26,7 @@ export interface NavigationProps extends BaseProps {
   orientation?: Orientation;
 }
 
-export interface NavigationLinkProps
+export interface NavigationItemProps
   extends BaseProps, Omit<LinkProps, "children"> {
   /**
    *   url or anchor
@@ -41,7 +41,7 @@ export interface NavigationLinkProps
   /**
    *   Subnavigation list under item.
    */
-  menu?: NavigationLinkProps[];
+  menu?: NavigationItemProps[];
 }
 
 export interface NavigationListProps extends ListProps {
@@ -51,6 +51,6 @@ export interface NavigationListProps extends ListProps {
   isOpen: boolean;
 }
 
-export interface SubNavigationProps extends Omit<NavigationLinkProps, "href"> {
+export interface SubNavigationProps extends Omit<NavigationItemProps, "href"> {
   children: React.ReactNode;
 }

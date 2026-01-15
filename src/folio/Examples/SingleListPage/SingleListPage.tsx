@@ -2,8 +2,8 @@
 import { Box, Heading, Navigation, Text } from "@/ui/components";
 import { transformNavigation } from "@/ui/components/common/Navigation/utilities";
 
-export function SingleListPage(navObject) {
-  const navigation = transformNavigation(navObject.navigation);
+export function SingleListPage({ data }) {
+  const navigation = transformNavigation(data.navigationArray);
 
   return (
     <>

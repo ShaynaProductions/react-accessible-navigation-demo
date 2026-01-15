@@ -1,0 +1,1 @@
+export { StyledHorizontalNavigationPage } from "./StyledHorizontalNavigationPage";

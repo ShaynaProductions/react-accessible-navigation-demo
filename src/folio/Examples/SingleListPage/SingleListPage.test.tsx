@@ -3,11 +3,13 @@ import fs from "fs";
 import { axe, render } from "@/test";
 import { SingleListPage } from "@/folio/Examples";
 
-const jsonObj = fs.readFileSync("public/__static__/single-list.json", "utf8");
-const nav = JSON.parse(jsonObj);
+const jsonObj = fs.readFileSync("src/ui/__static__/single-list.json", "utf8");
+const data = {
+  navigationArray: JSON.parse(jsonObj),
+};
 
 const renderPage = () => {
-  return render(<SingleListPage navigation={nav} />);
+  return render(<SingleListPage data={data} />);
 };
 
 describe("SingleListPage", () => {

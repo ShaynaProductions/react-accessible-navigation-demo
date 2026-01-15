@@ -4,13 +4,15 @@ import { axe, render } from "@/test";
 import { MultipleListButtonsPage } from "@/folio/Examples";
 
 const jsonObj = fs.readFileSync(
-  "public/__static__/multiple-lists-buttons.json",
+  "src/ui/__static__/multiple-lists-buttons.json",
   "utf8",
 );
-const nav = JSON.parse(jsonObj);
+const data = {
+  navigationArray: JSON.parse(jsonObj),
+};
 
 const renderPage = () => {
-  return render(<MultipleListButtonsPage navigation={nav} />);
+  return render(<MultipleListButtonsPage data={data} />);
 };
 
 describe("MultipleListButtonsPage", () => {

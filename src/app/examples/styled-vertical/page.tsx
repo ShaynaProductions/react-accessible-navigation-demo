@@ -1,6 +1,6 @@
 import fs from "fs";
 import { Metadata } from "next";
-import { MultipleListButtonsPage } from "@/folio/Examples";
+import { StyledVerticalNavigationPage } from "@/folio/Examples";
 import "./page.css";
 
 const jsonObj = fs.readFileSync(
@@ -12,11 +12,11 @@ const data = {
 };
 
 export const metadata: Metadata = {
-  title: "Multiple Lists with Button Ends Example",
+  title: "Design Ready Vertical Navigation Example",
 };
 
-export default async function MultipleListButtonsExample() {
+export default async function StyledHorizontalNavigationExample() {
   if (data.navigationArray) {
-    return <MultipleListButtonsPage data={data} />;
+    return <StyledVerticalNavigationPage data={data} />;
   }
 }
