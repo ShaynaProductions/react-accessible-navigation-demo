@@ -132,7 +132,7 @@ describe("<Navigation />", () => {
   });
 
   it("should return an aria-current when the href matches the current url", () => {
-    /* conforms to Structure/Transfirnation AC 10 */
+    /* conforms to Structure/Transformation AC 10 */
     const { getByRole } = renderNavigation("multiple-lists-link-ends", {});
     const currentLink = getByRole("link", {
       name: "About the Site (navigation)",

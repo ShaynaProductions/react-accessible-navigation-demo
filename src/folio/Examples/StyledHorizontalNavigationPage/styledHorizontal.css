@@ -1,10 +1,50 @@
 @layer main {
-    .horizontal-layout{
+    nav.horizontal-layout{
+
+        padding-top: calc(var(--sp-px) * 16);
+        padding-bottom:0;
+       & > ul[data-orientation="horizontal"] {
+           border: var(--component-border-width) solid transparent;
+           border-bottom-color:var(--component-border-color);
+           position: relative;
+           width: fit-content;
+           & > li{
+
+               height: fit-content;
+               min-width: calc(var(--sp-px) * 125);
+               white-space: nowrap;
+               & > button:focus, & > a[href]:focus {
+
+               --button-background: var(--purple-3);
+               --button-border-color: var(--purple-3);
+
+           }
+               & button[aria-expanded="true"] {
+                   background-color: var(--purple-3);
+               }
+              
+                & ul {
+                    background-color: var(--purple-1);
+                    position: absolute;
+                    z-index: 3;
+                    width: fit-content;
+                }
+           }
+
+       }
+
+        & button, & a {
+            display: inline-block;
+            border-radius: 0;
+            width: 100%;
+        }
         & a[href] {
+            
             &[aria-current='page'] {
                 border-style: dotted;
                 border-color: var(--component-border-color);
             }
+
         }
 
         & button {
@@ -20,8 +60,8 @@
             
             &:hover,
             &[data-hovered] {
-                --button-ghost-background: var(--button-background-hovered);
-                --button-ghost-border: var(--button-border-color-hovered);
+                --button-ghost-background: var(--purple-3);
+                --button-ghost-border: var(--purple-3);
             }
         }
     }

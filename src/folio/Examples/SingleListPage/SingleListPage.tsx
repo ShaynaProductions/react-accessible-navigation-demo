@@ -8,7 +8,12 @@ export function SingleListPage({ data }) {
   return (
     <>
       <Heading headingLevel={2}>Single Link List Structure</Heading>
-      <Text>An example showcasing one level of links horizontally aligned</Text>
+      <Text>
+        An example showcasing one level of links horizontally aligned. Keyboard
+        functionality in the single keyboard handling release implements the
+        following keys: arrow-left, arrow-right, home and end. This example is
+        fully functional.
+      </Text>
       <Box cx="example simple">
         <Navigation id="single-links-demo" label="Single Links Demo">
           {navigation}

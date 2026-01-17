@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import { List, ListProps } from "@/ui/components";
 import { NavigationListProps } from "./NavigationTypes";
+import { NavigationListProvider } from "@/ui/components/common/Navigation/providers";
 
 export default function NavigationList({
   children,
@@ -19,8 +20,10 @@ export default function NavigationList({
   };
 
   return (
-    <List key={`list-$id`} {...listProps}>
-      {children}
-    </List>
+    <NavigationListProvider>
+      <List key={`list-$id`} {...listProps}>
+        {children}
+      </List>
+    </NavigationListProvider>
   );
 }

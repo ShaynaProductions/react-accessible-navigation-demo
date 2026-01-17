@@ -1,6 +1,65 @@
 @layer main {
-    .vertical-layout {
+    nav.vertical-layout {
+        min-height: 75%;
+
+        & > ul {
+            border: var(--default-border-width) solid var(--default-border-color);
+            border-bottom-right-radius: var(--default-border-radius);
+            border-top-right-radius: var(--default-border-radius);
+            background-color: var(--default-background);
+            left: 0;
+            padding: calc(var(--sp-px) * 16);
+            min-height: 100%;
+            z-index: 3;
+
+            & > li {
+                &:has(button) {
+                    border-bottom: var(--default-border-width) solid var(--default-border-color);
+
+                    & > ul {
+                        background-color: var(--default-background);
+                    }
+                }
+
+                & button, a[href] {
+                    display: inline-block;
+                    width: 100%;
+                    text-align: left;
+                    height: calc(var(--sp-px) * 32);
+                }
+
+                & ul {
+                    width: 100%;
+                }
+
+                &:has(> :focus){
+                    background-color: var(--purple-3);
+                    border-color: var(--purple-3);
+
+                }
+
+                & button[aria-expanded="true"] {
+                    background-color: var(--purple-3);
+                }
+            }
+        }
+
+        & button, & a[href] {
+            border-radius: 0;
+            &:hover,
+            &[data-hovered],
+            &:focus,
+            &[data-focused]{
+               background-color: var(--purple-3);
+                border-color: var(--purple-4);
+            }
+        }
+
+
         & a[href] {
+            text-decoration: none;
+        }
+
             &[aria-current='page'] {
                 border-style: dotted;
                 border-color: var(--component-border-color);
@@ -18,11 +77,7 @@
                 padding-left: calc(var(--sp-px) * 8);
             }
 
-            &:hover,
-            &[data-hovered] {
-                --button-ghost-background: var(--button-background-hovered);
-                --button-ghost-border: var(--button-border-color-hovered);
-            }
-        }
+
+        
     }
 }
