@@ -13,10 +13,11 @@ export function StyledVerticalNavigationPage({ data }) {
         environment is made available for design.
       </Text>
       <Text>
-        <strong>Note:</strong> Keyboard functionality in the
-        Structure/Transformation release is limited to TAB and navigating with
-        the TAB will currently cause the focus to disappear into any hidden
-        list.
+        <strong>Note:</strong> Keyboard functionality in the single keyboard
+        handling release implements the following keys: arrow-left, arrow-right,
+        home and end. Use the TAB key to move between lists. Use of the TAB key
+        on a button with an unexpanded list, will result in the focus
+        disappearing.
       </Text>
       <Box>
         <Navigation

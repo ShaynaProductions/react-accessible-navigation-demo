@@ -15,13 +15,23 @@
     "href": "/examples/single-list"
   },
   {
-    "label": "Desktop All Buttons",
-    "id": "desktop-buttons",
-    "href": "/examples/desktop-buttons"
+    "label": "Horizontal All Buttons",
+    "id": "multiple-lists-buttons",
+    "href": "/examples/multiple-lists-buttons"
   },
   {
-    "label": "Desktop Link Ends",
-    "id": "desktop-link-ends",
-    "href": "/examples/desktop-link-ends"
+    "label": "Horizontal Link Ends",
+    "id": "multiple-lists-link-ends",
+    "href": "/examples/multiple-lists-link-ends"
+  },
+  {
+    "label": "Horizontal Styled",
+    "id": "styled-horizontal",
+    "href": "/examples/styled-horizontal"
+  },
+  {
+    "label": "Vertical Styled",
+    "id": "styled-vertical",
+    "href": "/examples/styled-vertical"
   }
 ]

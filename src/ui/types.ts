@@ -23,3 +23,7 @@ export interface BaseProps {
 }
 
 export type Orientation = "horizontal" | "vertical";
+
+/* istanbul ignore next */
+const emptySymbol = Symbol("EmptyObject type");
+export type EmptyObject = { [emptySymbol]?: never };

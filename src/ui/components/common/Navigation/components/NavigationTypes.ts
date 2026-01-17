@@ -3,6 +3,8 @@ import { LinkProps } from "next/link";
 import { ListProps } from "@/ui/components";
 import { BaseProps, Orientation } from "@/ui/types";
 
+export type FocusableElementType = HTMLAnchorElement | HTMLButtonElement;
+
 export interface NavigationProps extends BaseProps {
   /**
    * The children of the component.

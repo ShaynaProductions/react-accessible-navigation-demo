@@ -31,23 +31,22 @@ export function HomePage() {
       </Box>
       <Box cx="latest-release">
         <Heading headingLevel={2}>Latest Release</Heading>
-        <Heading headingLevel={3}>Basic Structure Implementation</Heading>
+        <Heading headingLevel={3}>Keyboard Handling for a Single List</Heading>
         <DefinitionList>
           <DefinitionTerm>Article</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="(https://dev.to/shaynaproductions/structure-and-transformation-first-steps-in-navigation-implementation-248"
+              href="(https://dev.to/shaynaproductions/single-list-keyboard-handling-254g"
               openInNewTab={true}
             >
-              Structure and Transformation: First Steps in Navigation
-              Implementation
+              Single List Keyboard Handling
             </Link>
             <br />
           </DefinitionDetail>
           <DefinitionTerm>Release</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.3.0"
+              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.4.0"
               openInNewTab={true}
             >
               Implementing the Basic Navigation Structure
@@ -92,7 +91,7 @@ export function HomePage() {
           Explore the previous releases in this series. Each release is
           associated with an article along with the tagged github repository.
         </Text>
-        <List>
+        <List isOrdered={true}>
           <ListItem>
             <Heading headingLevel={3}>Accessible Base Components</Heading>
             <DefinitionList>
@@ -122,6 +121,31 @@ export function HomePage() {
                 </Link>
               </DefinitionDetail>
             </DefinitionList>
+          </ListItem>
+          <ListItem>
+            <Heading headingLevel={3}>Basic Structure Implementation</Heading>
+            <DefinitionList>
+              <DefinitionTerm>Article</DefinitionTerm>
+              <DefinitionDetail>
+                <Link
+                  href="(https://dev.to/shaynaproductions/structure-and-transformation-first-steps-in-navigation-implementation-248"
+                  openInNewTab={true}
+                >
+                  Structure and Transformation: First Steps in Navigation
+                  Implementation
+                </Link>
+                <br />
+              </DefinitionDetail>
+              <DefinitionTerm>Release</DefinitionTerm>
+              <DefinitionDetail>
+                <Link
+                  href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.3.0"
+                  openInNewTab={true}
+                >
+                  Implementing the Basic Navigation Structure
+                </Link>
+              </DefinitionDetail>
+            </DefinitionList>{" "}
           </ListItem>
         </List>
       </Box>
