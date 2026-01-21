@@ -86,7 +86,7 @@ describe("<Navigation />", () => {
     expect(navLists[0]).not.toHaveClass("srOnly");
   });
 
-  it("should associate a button with a sublist and indicate if the sublist is open or closed", () => {
+  it("should associate a button with a sublist and indicate if the sublist is open or closed", async () => {
     /* conforms to Structure/Transformation AC 8 (association) / 12 */
     const { getByRole, getByTestId } = renderNavigation(
       "multiple-lists-buttons",
@@ -102,6 +102,10 @@ describe("<Navigation />", () => {
     expect(communityList).toContainElement(blogLink);
     expect(communityList).toHaveClass("srOnly");
     expect(blogLink).toBeInTheDocument();
+    await userEvent.click(communityButton);
+    expect(communityList).not.toHaveClass("srOnly");
+    await userEvent.click(communityButton);
+    expect(communityList).toHaveClass("srOnly");
   });
 
   it("should handle an OnClick event", async () => {

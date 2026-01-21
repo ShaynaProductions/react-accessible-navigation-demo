@@ -31,25 +31,27 @@ export function HomePage() {
       </Box>
       <Box cx="latest-release">
         <Heading headingLevel={2}>Latest Release</Heading>
-        <Heading headingLevel={3}>Keyboard Handling for a Single List</Heading>
+        <Heading headingLevel={3}>
+          Providing Underlying Architecture for List Hopping
+        </Heading>
         <DefinitionList>
           <DefinitionTerm>Article</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="(https://dev.to/shaynaproductions/single-list-keyboard-handling-254g"
+              href="https://dev.to/shaynaproductions/are-you-my-parent-providing-the-underlying-architecture-171m"
               openInNewTab={true}
             >
-              Single List Keyboard Handling
+              Are You My Parent?: Providing the underlying architecture
             </Link>
             <br />
           </DefinitionDetail>
           <DefinitionTerm>Release</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.4.0"
+              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.5.0"
               openInNewTab={true}
             >
-              Implementing the Basic Navigation Structure
+              Setting up for Future Work - Architectural Implementation
             </Link>
           </DefinitionDetail>
         </DefinitionList>
@@ -145,7 +147,33 @@ export function HomePage() {
                   Implementing the Basic Navigation Structure
                 </Link>
               </DefinitionDetail>
-            </DefinitionList>{" "}
+            </DefinitionList>
+          </ListItem>
+          <ListItem>
+            <Heading headingLevel={3}>
+              Keyboard Handling for a Single List
+            </Heading>
+            <DefinitionList>
+              <DefinitionTerm>Article</DefinitionTerm>
+              <DefinitionDetail>
+                <Link
+                  href="https://dev.to/shaynaproductions/single-list-keyboard-handling-254g"
+                  openInNewTab={true}
+                >
+                  Single List Keyboard Handling
+                </Link>
+                <br />
+              </DefinitionDetail>
+              <DefinitionTerm>Release</DefinitionTerm>
+              <DefinitionDetail>
+                <Link
+                  href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.4.0"
+                  openInNewTab={true}
+                >
+                  Implementing the Basic Navigation Structure
+                </Link>
+              </DefinitionDetail>
+            </DefinitionList>
           </ListItem>
         </List>
       </Box>

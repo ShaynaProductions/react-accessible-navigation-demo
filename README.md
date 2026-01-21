@@ -26,3 +26,4 @@ Each published article is linked and will refer to the appropriate Github tag to
 1. [Foundational Accessibility Begins with the Base Components](https://dev.to/shaynaproductions/foundational-accessibility-begins-with-the-base-components-4f5p)
 2. [Structure and Transformation: First Steps in Navigation Implementation](https://dev.to/shaynaproductions/structure-and-transformation-first-steps-in-navigation-implementation-248)
 3. [Single List Keyboard Handling](https://dev.to/shaynaproductions/single-list-keyboard-handling-254g)
+4. [Are You My Parent?: Providing the underlying architecture](https://dev.to/shaynaproductions/are-you-my-parent-providing-the-underlying-architecture-171m)

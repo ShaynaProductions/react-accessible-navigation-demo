@@ -1,18 +1,24 @@
 "use client";
 
-import { useEffect, useRef, type JSX, type KeyboardEvent } from "react";
 import {
-  FocusableElementType,
+  useEffect,
+  useRef,
+  type JSX,
+  type KeyboardEvent,
+  useState,
+} from "react";
+import {
   Link,
   ListItem,
+  type FocusableElementType,
   type LinkProps,
   type ListItemProps,
 } from "@/ui/components";
 import { usePathname } from "@/ui/hooks";
-import { Keys, returnTrueElementOrUndefined } from "@/ui/utllities";
-import { useNavigationList } from "@/ui/components/common/Navigation/hooks";
-import { handleCommonKeyDown } from "@/ui/components/common/Navigation/utilities";
-import { NavigationItemProps } from "./NavigationTypes";
+import { Keys, returnTrueElementOrUndefined } from "@/ui/utilities";
+import { useNavigation, useNavigationList } from "../hooks";
+import { handleCommonKeyDown } from "../utilities";
+import type { NavigationItemProps } from "./NavigationTypes";
 
 export default function NavigationItem({
   cx,
@@ -22,24 +28,33 @@ export default function NavigationItem({
   ...rest
 }: NavigationItemProps): JSX.Element {
   const {
+    currentListItems,
+    parentEl,
     registerItemInCurrentList,
     setFirstFocus,
     setLastFocus,
     setNextFocus,
     setPreviousFocus,
   } = useNavigationList();
+
+  const { registerItemInNavigationArray } = useNavigation();
+
   const currentPath = usePathname();
   const pageURL = href.substring(0, 2) === "/#" ? currentPath + href : href;
-
   const linkRef = useRef<HTMLAnchorElement>(null);
+  const [linkEl, setLinkEl] = useState<FocusableElementType | null>(null);
 
   useEffect(() => {
-    registerItemInCurrentList(linkRef.current as FocusableElementType);
-  }, [linkRef, registerItemInCurrentList]);
+    const currentLinkEl = linkRef.current as FocusableElementType;
+    registerItemInCurrentList(currentLinkEl);
+    setLinkEl(currentLinkEl as FocusableElementType);
+  }, [currentListItems, linkRef, registerItemInCurrentList, setLinkEl]);
+
+  useEffect(() => {
+    registerItemInNavigationArray(currentListItems, parentEl);
+  }, [currentListItems, parentEl, registerItemInNavigationArray]);
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    const linkEl = linkRef.current as FocusableElementType;
-
     switch (e.key) {
       case Keys.HOME:
       case Keys.END:
@@ -52,7 +67,7 @@ export default function NavigationItem({
     // common between link and button
     handleCommonKeyDown(
       e,
-      linkEl,
+      linkEl as FocusableElementType,
       setFirstFocus,
       setLastFocus,
       setNextFocus,

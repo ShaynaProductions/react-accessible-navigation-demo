@@ -10,7 +10,10 @@ export function StyledHorizontalNavigationPage({ data }) {
       <Heading headingLevel={2}>Design Ready Horizontal Navigation</Heading>
       <Text>
         Once structure and transformation are completed, a design ready
-        environment is made available for design.
+        environment is made available for design. Styling has been added to
+        standardize widths, and bring visual indicators of focus, hover and
+        focus-visible (including visual indicators of open lists and
+        subnavigation relationships.
       </Text>
       <Text>
         <strong>Note:</strong> Keyboard functionality in the single keyboard

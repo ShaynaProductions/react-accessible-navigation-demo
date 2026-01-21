@@ -1,7 +1,6 @@
 "use client";
 
 import { JSX, useEffect, useRef, useState, type KeyboardEvent } from "react";
-
 import {
   Button,
   Icon,
@@ -10,16 +9,17 @@ import {
   type IconProps,
   type ListItemProps,
 } from "@/ui/components";
-import { usePrevious } from "@/ui/hooks";
 import { ChevronRightIcon } from "@/ui/svg";
-import { Keys } from "@/ui/utllities";
+import { Keys } from "@/ui/utilities";
 
-import { useNavigationList } from "@/ui/components/common/Navigation/hooks";
-import { handleCommonKeyDown } from "@/ui/components/common/Navigation/utilities";
+import { useNavigation, useNavigationList } from "../hooks";
+import {
+  type ControllingElementType,
+  type FocusableElementType,
+  handleCommonKeyDown,
+} from "../utilities";
 import NavigationList from "./NavigationList";
-
 import type {
-  FocusableElementType,
   NavigationListProps,
   SubNavigationProps,
 } from "./NavigationTypes";
@@ -32,25 +32,44 @@ export default function SubNavigation({
   testId,
 }: SubNavigationProps): JSX.Element {
   const {
+    currentListItems,
+    parentEl,
     registerItemInCurrentList,
     setFirstFocus,
     setLastFocus,
     setNextFocus,
     setPreviousFocus,
   } = useNavigationList();
+  const {
+    registerButtonAsParent,
+    registerItemInNavigationArray,
+    setIsListOpen,
+  } = useNavigation();
 
-  const [isSubListOpen, setIsSubListOpen] = useState<boolean>(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const prevButtonRef = usePrevious(buttonRef);
 
-  /* Register element into list provider  */
+  const [buttonEl, setButtonEl] = useState<
+    FocusableElementType | ControllingElementType
+  >(null);
+  const [isSubListOpen, setIsSubListOpen] = useState<boolean>(false);
+
   useEffect(() => {
-    const buttonEl = buttonRef.current as FocusableElementType;
-    registerItemInCurrentList(buttonEl);
-  }, [isSubListOpen, registerItemInCurrentList, prevButtonRef]);
+    const currentButtonEl = buttonRef.current as FocusableElementType;
+    registerItemInCurrentList(currentButtonEl);
+    registerButtonAsParent(isSubListOpen, currentButtonEl);
+    setButtonEl(currentButtonEl);
+  }, [
+    buttonRef,
+    isSubListOpen,
+    registerButtonAsParent,
+    registerItemInCurrentList,
+  ]);
+
+  useEffect(() => {
+    registerItemInNavigationArray(currentListItems, parentEl);
+  }, [currentListItems, parentEl, registerItemInNavigationArray]);
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    const buttonEl = buttonRef.current as FocusableElementType;
     switch (e.key) {
       case Keys.HOME:
       case Keys.END:
@@ -59,10 +78,10 @@ export default function SubNavigation({
         e.preventDefault();
         break;
     }
-    // common between link and button
+    // common between focusable elements
     handleCommonKeyDown(
       e,
-      buttonEl,
+      buttonEl as FocusableElementType,
       setFirstFocus,
       setLastFocus,
       setNextFocus,
@@ -72,6 +91,7 @@ export default function SubNavigation({
 
   const handlePress = () => {
     setIsSubListOpen(!isSubListOpen);
+    setIsListOpen(!isSubListOpen, buttonEl);
   };
 
   const buttonProps: ButtonProps = {
@@ -95,6 +115,7 @@ export default function SubNavigation({
   const navigationListProps: NavigationListProps = {
     id: id,
     isOpen: isSubListOpen,
+    parentEl: buttonEl as ControllingElementType,
     testId: testId && `${testId}-list`,
   };
   return (
