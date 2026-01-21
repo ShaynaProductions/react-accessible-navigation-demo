@@ -26,7 +26,7 @@ export const getMultipleButtonsTestElements = (getByRole) => {
   return {
     communityButton: getByRole("button", { name: "Community (subnavigation)" }),
     storiesButton: getByRole("button", {
-      name: "Stories and Commentary (subnavigation)",
+      name: "Tales (subnavigation)",
     }),
     referenceButton: getByRole("button", { name: "Reference (subnavigation)" }),
     aboutButton: getByRole("button", { name: "About (subnavigation)" }),

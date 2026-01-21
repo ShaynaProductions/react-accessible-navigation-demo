@@ -1,5 +1,5 @@
 import React from "react";
-import { Keys } from "@/ui/utllities";
+import { Keys } from "@/ui/utilities";
 import type { FocusableElementType } from "@/ui/components";
 import type { UseNavigationListReturnProps } from "../../hooks/useNavigationList";
 

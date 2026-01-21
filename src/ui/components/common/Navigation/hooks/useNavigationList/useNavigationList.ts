@@ -1,8 +1,10 @@
 "use client";
 import { use, useCallback } from "react";
 import type { FocusableElementType } from "@/ui/components/common";
-import { returnTrueElementOrUndefined } from "@/ui/utllities";
-import { NavigationListContext } from "@/ui/components/common/Navigation/providers";
+import { returnTrueElementOrUndefined } from "@/ui/utilities";
+
+import { NavigationListContext } from "../../providers";
+import type { ControllingElementType } from "../../utilities/types";
 import type {
   UseNavigationListInternalProps,
   UseNavigationListReturnProps,
@@ -10,13 +12,14 @@ import type {
 
 export function useNavigationList(): UseNavigationListReturnProps {
   const navigationListContextObj = use(NavigationListContext);
-  const { getCurrentListItems, registerItemInCurrentList } =
+  const { getCurrentListItems, getParentEl, registerItemInCurrentList } =
     returnTrueElementOrUndefined(
       !!navigationListContextObj,
       navigationListContextObj,
     );
 
   const currentListItems: FocusableElementType[] = getCurrentListItems();
+  const parentEl: ControllingElementType = getParentEl();
 
   const _getCurrentIndex: UseNavigationListInternalProps["_getCurrentIndex"] =
     useCallback(
@@ -64,6 +67,7 @@ export function useNavigationList(): UseNavigationListReturnProps {
 
   return {
     currentListItems,
+    parentEl,
     registerItemInCurrentList,
     setFirstFocus,
     setLastFocus,

@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { returnTrueElementOrUndefined } from "@/ui/utllities";
+import { returnTrueElementOrUndefined } from "@/ui/utilities";
 import { IconProps } from "./IconTypes";
 
 export default function Icon({

@@ -1,41 +1,43 @@
 "use client";
 
 import { createContext, useCallback, useState } from "react";
-import { FocusableElementType } from "@/ui/components";
-import { EmptyObject } from "@/ui/types";
-import { NavigationListContextReturnValueProps } from "./NavigationListProviderTypes";
+import type { EmptyObject } from "@/ui/types";
+import type { FocusableElementType } from "../../utilities";
+import type { NavigationListContextReturnValueProps } from "./NavigationListProviderTypes";
 
 export const NavigationListContext = createContext<
   Partial<NavigationListContextReturnValueProps> | EmptyObject
 >({});
 
-export function NavigationListProvider({ children }) {
-  const [currentListItems, setCurrentListItems] = useState<
-    FocusableElementType[]
-  >([]);
+export function NavigationListProvider({ children, value }) {
+  const { parentEl } = value;
+  const [currentListItems] = useState<FocusableElementType[]>([]);
 
   const getCurrentListItems: NavigationListContextReturnValueProps["getCurrentListItems"] =
     useCallback(() => {
       return currentListItems;
     }, [currentListItems]);
 
+  const getParentEl = useCallback(() => {
+    return parentEl;
+  }, [parentEl]);
+
   const registerItemInCurrentList: NavigationListContextReturnValueProps["registerItemInCurrentList"] =
     useCallback(
       (focusableEl: FocusableElementType) => {
-        const mutableArray = currentListItems;
         /* istanbul ignore else */
-        if (mutableArray?.indexOf(focusableEl) === -1) {
-          mutableArray.push(focusableEl);
-          setCurrentListItems(mutableArray);
+        if (!currentListItems.includes(focusableEl)) {
+          currentListItems.push(focusableEl);
         }
       },
-      [currentListItems, setCurrentListItems],
+      [currentListItems],
     );
 
   return (
     <NavigationListContext.Provider
       value={{
         getCurrentListItems,
+        getParentEl,
         registerItemInCurrentList,
       }}
     >

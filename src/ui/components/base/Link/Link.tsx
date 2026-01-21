@@ -10,7 +10,7 @@ import React, {
 import { default as NextLink } from "next/link";
 
 import { useMergedRef } from "@/ui/hooks/";
-import { safeEventHandlerCall } from "@/ui/utllities";
+import { safeEventHandlerCall } from "@/ui/utilities";
 
 import { LinkProps } from "./LinkTypes";
 import useLink from "./useLink";

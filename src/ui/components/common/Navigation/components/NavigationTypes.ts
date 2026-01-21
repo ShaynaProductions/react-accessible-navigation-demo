@@ -1,9 +1,8 @@
 import React from "react";
-import { LinkProps } from "next/link";
-import { ListProps } from "@/ui/components";
-import { BaseProps, Orientation } from "@/ui/types";
-
-export type FocusableElementType = HTMLAnchorElement | HTMLButtonElement;
+import type { LinkProps } from "next/link";
+import type { ListProps } from "@/ui/components";
+import type { BaseProps, Orientation } from "@/ui/types";
+import type { ControllingElementType } from "../utilities/types";
 
 export interface NavigationProps extends BaseProps {
   /**
@@ -51,8 +50,18 @@ export interface NavigationListProps extends ListProps {
    * is List visible and operable
    */
   isOpen: boolean;
+  /**
+   * parentEl: Button Element or null
+   */
+  parentEl: ControllingElementType;
 }
 
 export interface SubNavigationProps extends Omit<NavigationItemProps, "href"> {
   children: React.ReactNode;
+}
+
+export interface NavigationWrapperProps extends Omit<BaseProps, "testid"> {
+  children: React.ReactNode;
+  label: string;
+  parentRef?: React.RefObject<ControllingElementType>;
 }

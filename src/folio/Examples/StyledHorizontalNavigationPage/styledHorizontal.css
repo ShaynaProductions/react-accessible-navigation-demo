@@ -1,68 +1,124 @@
 @layer main {
-    nav.horizontal-layout{
-
+    nav.horizontal-layout {
+        --active-background: var(--purple-3);
+        --subtle-background: var(--purple-2);
+        --subnav-shift: calc((var(--sp-px) * 24));
+        --background: var(--purple-1);
+        padding-left: 15%;
         padding-top: calc(var(--sp-px) * 16);
-        padding-bottom:0;
-       & > ul[data-orientation="horizontal"] {
-           border: var(--component-border-width) solid transparent;
-           border-bottom-color:var(--component-border-color);
-           position: relative;
-           width: fit-content;
-           & > li{
 
-               height: fit-content;
-               min-width: calc(var(--sp-px) * 125);
-               white-space: nowrap;
-               & > button:focus, & > a[href]:focus {
+        & > ul[data-orientation="horizontal"] {
+            /* top row */
 
-               --button-background: var(--purple-3);
-               --button-border-color: var(--purple-3);
+            & > li {
+                position: relative;
+                width: 100%;
+                white-space: nowrap;
 
-           }
-               & button[aria-expanded="true"] {
-                   background-color: var(--purple-3);
-               }
-              
-                & ul {
-                    background-color: var(--purple-1);
+                & > ul {
+                    background-color: var(--background);
+                    border-color: var(--component-border-color);
+                    border-style: solid;
+                    border-width: var(--component-border-width);
+                    border-top-color: transparent;
+
                     position: absolute;
                     z-index: 3;
-                    width: fit-content;
+                    top: calc(var(--sp-px) * 42);
+                    width: 100%;
                 }
-           }
 
-       }
 
-        & button, & a {
-            display: inline-block;
-            border-radius: 0;
-            width: 100%;
-        }
-        & a[href] {
-            
-            &[aria-current='page'] {
-                border-style: dotted;
-                border-color: var(--component-border-color);
+                & > button, & > a[href] {
+                    --button-background: var(--button-ghost-background);
+                    --button-border-color: var(--button-ghost-border);
+                    --button-padding: calc(var(--sp-px) * 4);
+                    --button-color: var(--component-text-color);
+
+                    border-width: calc(var(--sp-px) * 2);
+                    justify-content: flex-start;
+                    text-align: center;
+                    text-decoration: none;
+                    padding: calc(var(--sp-px) * 8);
+                    padding-right: calc(var(--sp-px) * 16);
+
+                    display: block;
+                    width: 100%;
+                    border-radius: 0;
+
+                    & svg {
+                        fill: var(--component-text-color);
+                        left: calc(var(--sp-px) * 16) !important;
+
+                    }
+
+                    &:hover, &:focus {
+                        border-bottom-color: var(--purple-8);
+                        border-style: solid;
+
+                    }
+
+                    &:focus-visible {
+                        outline-style: dashed;
+                        outline-offset: calc(var(--sp-px) * 2);
+                        outline-color: var(--purple-6);
+                        border-top-left-radius: calc(var(--sp-px) * 16);
+                        border-top-right-radius: calc(var(--sp-px) * 16);
+                    }
+
+                    &[aria-expanded="true"] {
+                        background-color: var(--subtle-background);
+                        border-top-left-radius: calc(var(--sp-px) * 16);
+                        border-top-right-radius: calc(var(--sp-px) * 16);
+                    }
+                }
+
+
+                & ul[data-orientation="vertical"] {
+                    & > li ul {
+                        & button, & a[href] {
+                            padding-left: var(--subnav-shift);
+                            position: relative;
+                            width: calc(100% - var(--subnav-shift));
+                        }
+                    }
+
+                    & button, & a[href] {
+                        --button-background: var(--button-ghost-background);
+                        --button-border-color: var(--button-ghost-border);
+                        --button-padding: calc(var(--sp-px) * 4);
+                        --button-color: var(--component-text-color);
+                        justify-content: flex-start;
+                        text-align: left;
+                        text-decoration: none;
+                        padding: calc(var(--sp-px) * 8);
+                        padding-right: calc(var(--sp-px) * 16);
+
+                        display: block;
+                        width: 100%;
+                        border-radius: 0;
+
+                        & svg {
+                            fill: var(--component-text-color);
+                        }
+
+                        &:focus-visible, &:hover {
+                            --button-ghost-background: var(--active-background);
+                            --component-link-background: var(--active-background);
+                            width: 100%;
+                        }
+
+                        &[aria-expanded="true"] {
+                            --button-ghost-background: var(--active-background);
+
+                            &:focus-visible, &:hover {
+                                background-color: var(--active-background);
+                            }
+                        }
+                    }
+                }
             }
 
-        }
-
-        & button {
-            --button-background: var(--button-ghost-background);
-            --button-border-color: var(--button-ghost-border);
-            --button-padding: calc(var(--sp-px) * 4);
-            --button-color: var(--button-ghost-color);
-
-            & svg {
-                --svg-fill: var(--purple-10);
-                padding-left: calc(var(--sp-px) * 8);
-            }
-            
-            &:hover,
-            &[data-hovered] {
-                --button-ghost-background: var(--purple-3);
-                --button-ghost-border: var(--purple-3);
-            }
         }
     }
 }
