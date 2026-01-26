@@ -23,7 +23,10 @@ export interface NavigationContextInternalProps {
     index: number,
     updatedContent: Partial<NavigationObjectProps>,
   ) => void;
-  _setParentEl: (parentEl: ControllingElementType) => void;
+  _setParentEl: (
+    parentEl: ControllingElementType,
+    isSubListOpen: boolean,
+  ) => void;
 }
 
 export interface NavigationContextReturnValueProps {

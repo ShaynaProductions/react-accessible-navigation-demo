@@ -38,17 +38,17 @@ export function HomePage() {
           <DefinitionTerm>Article</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="https://dev.to/shaynaproductions/are-you-my-parent-providing-the-underlying-architecture-171m"
+              href="https://dev.to/shaynaproductions/the-ups-and-downs-of-keyboard-handling-80n"
               openInNewTab={true}
             >
-              Are You My Parent?: Providing the underlying architecture
+              The Ups and Downs of Keyboard Handling
             </Link>
             <br />
           </DefinitionDetail>
           <DefinitionTerm>Release</DefinitionTerm>
           <DefinitionDetail>
             <Link
-              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.5.0"
+              href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.6.0"
               openInNewTab={true}
             >
               Setting up for Future Work - Architectural Implementation
@@ -67,7 +67,7 @@ export function HomePage() {
         <Text>
           Current Examples provide differing desktop navigation scenarios which
           currently implement a base navigation structure accessible by screen,
-          screen reader, mouse and the TAB key.
+          screen reader, mouse, as well as the arrow keys.
         </Text>
         <List>
           <ListItem>
@@ -171,6 +171,30 @@ export function HomePage() {
                   openInNewTab={true}
                 >
                   Implementing the Basic Navigation Structure
+                </Link>
+              </DefinitionDetail>
+            </DefinitionList>
+          </ListItem>
+
+          <ListItem>
+            <DefinitionList>
+              <DefinitionTerm>Article</DefinitionTerm>
+              <DefinitionDetail>
+                <Link
+                  href="https://dev.to/shaynaproductions/are-you-my-parent-providing-the-underlying-architecture-171m"
+                  openInNewTab={true}
+                >
+                  Are You My Parent?: Providing the underlying architecture
+                </Link>
+                <br />
+              </DefinitionDetail>
+              <DefinitionTerm>Release</DefinitionTerm>
+              <DefinitionDetail>
+                <Link
+                  href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.5.0"
+                  openInNewTab={true}
+                >
+                  Setting up for Future Work - Architectural Implementation
                 </Link>
               </DefinitionDetail>
             </DefinitionList>

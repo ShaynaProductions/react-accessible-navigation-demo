@@ -14,9 +14,9 @@ import { Keys } from "@/ui/utilities";
 
 import { useNavigation, useNavigationList } from "../hooks";
 import {
+  handleCommonKeyDown,
   type ControllingElementType,
   type FocusableElementType,
-  handleCommonKeyDown,
 } from "../utilities";
 import NavigationList from "./NavigationList";
 import type {
@@ -39,8 +39,11 @@ export default function SubNavigation({
     setLastFocus,
     setNextFocus,
     setPreviousFocus,
+    shiftFocus,
   } = useNavigationList();
   const {
+    getNextByButton,
+    getPreviousByButton,
     registerButtonAsParent,
     registerItemInNavigationArray,
     setIsListOpen,
@@ -75,6 +78,8 @@ export default function SubNavigation({
       case Keys.END:
       case Keys.LEFT:
       case Keys.RIGHT:
+      case Keys.DOWN:
+      case Keys.UP:
         e.preventDefault();
         break;
     }
@@ -87,6 +92,23 @@ export default function SubNavigation({
       setNextFocus,
       setPreviousFocus,
     );
+
+    let focusableEl: FocusableElementType | undefined;
+    switch (e.key) {
+      case Keys.UP:
+        focusableEl = getPreviousByButton(buttonEl as FocusableElementType);
+        break;
+      case Keys.DOWN:
+        focusableEl = getNextByButton(
+          buttonEl as FocusableElementType,
+          isSubListOpen,
+        );
+        break;
+    }
+
+    if (focusableEl) {
+      shiftFocus(focusableEl);
+    }
   };
 
   const handlePress = () => {

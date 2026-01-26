@@ -3,7 +3,6 @@ import { ControllingElementType } from "@/ui/components/common/Navigation/utilit
 
 export interface UseNavigationListInternalProps {
   _getCurrentIndex: (focusedElement: FocusableElementType) => number;
-  _shiftFocus: (focusableEl: FocusableElementType) => void;
 }
 
 export interface UseNavigationListReturnProps {
@@ -14,4 +13,5 @@ export interface UseNavigationListReturnProps {
   setLastFocus: () => void;
   setNextFocus: (currentlyFocusedEl: FocusableElementType) => void;
   setPreviousFocus: (currentlyFocusedEl: FocusableElementType) => void;
+  shiftFocus: (focusableEl: FocusableElementType) => void;
 }

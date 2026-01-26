@@ -35,9 +35,11 @@ export default function NavigationItem({
     setLastFocus,
     setNextFocus,
     setPreviousFocus,
+    shiftFocus,
   } = useNavigationList();
 
-  const { registerItemInNavigationArray } = useNavigation();
+  const { getNextByLink, getPreviousByLink, registerItemInNavigationArray } =
+    useNavigation();
 
   const currentPath = usePathname();
   const pageURL = href.substring(0, 2) === "/#" ? currentPath + href : href;
@@ -60,6 +62,8 @@ export default function NavigationItem({
       case Keys.END:
       case Keys.LEFT:
       case Keys.RIGHT:
+      case Keys.DOWN:
+      case Keys.UP:
         e.preventDefault();
         e.stopPropagation();
         break;
@@ -73,6 +77,20 @@ export default function NavigationItem({
       setNextFocus,
       setPreviousFocus,
     );
+
+    let focusableEl: FocusableElementType | undefined;
+    switch (e.key) {
+      case Keys.UP:
+        focusableEl = getPreviousByLink(linkEl as FocusableElementType);
+        break;
+      case Keys.DOWN:
+        focusableEl = getNextByLink(linkEl as FocusableElementType);
+        break;
+    }
+
+    if (focusableEl) {
+      shiftFocus(focusableEl);
+    }
   };
 
   const listItemProps: Omit<ListItemProps, "children"> = {

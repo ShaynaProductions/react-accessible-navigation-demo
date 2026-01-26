@@ -4,9 +4,10 @@ import { createContext, type JSX, useCallback, useState } from "react";
 import type { EmptyObject } from "@/ui/types";
 import { arraysEqual } from "@/ui/utilities";
 
-import type {
+import {
   NavigationContextInternalProps,
   NavigationContextReturnValueProps,
+  NavigationObjectProps,
 } from "./NavigationProviderTypes";
 
 export const NavigationContext = createContext<
@@ -15,7 +16,12 @@ export const NavigationContext = createContext<
 
 export function NavigationProvider({ children, value }): JSX.Element {
   const { data } = value;
-  const [navigationArray, setNavigationArray] = useState([data]);
+  const navObject: NavigationObjectProps = {
+    storedParentEl: data.storedParentEl,
+    isSubListOpen: data.isSubListOpen,
+    storedList: [],
+  };
+  const [navigationArray, setNavigationArray] = useState([navObject]);
 
   const getNavigationArray: NavigationContextReturnValueProps["getNavigationArray"] =
     useCallback(() => {
@@ -53,10 +59,14 @@ export function NavigationProvider({ children, value }): JSX.Element {
 
   const _setParentEl: NavigationContextInternalProps["_setParentEl"] =
     useCallback(
-      (parentEl) => {
+      (parentEl, isListOpen) => {
         const parentIndex = _getNavigationIndex(parentEl);
         if (parentIndex === -1) {
-          navigationArray.push({ storedParentEl: parentEl });
+          navigationArray.push({
+            storedParentEl: parentEl,
+            isSubListOpen: isListOpen,
+            storedList: [],
+          });
         }
       },
       [_getNavigationIndex, navigationArray],
@@ -93,15 +103,13 @@ export function NavigationProvider({ children, value }): JSX.Element {
             storedList: navigationList,
           });
         }
-        // console.log(getNavigationArray());
       },
       [_getNavigationIndex, getNavigationArray, _setNavigationArrayObject],
     );
 
   const registerButtonAsParent: NavigationContextReturnValueProps["registerButtonAsParent"] =
     (isListOpen, parentEl) => {
-      _setParentEl(parentEl);
-      setIsListOpen(isListOpen, parentEl);
+      _setParentEl(parentEl, isListOpen);
     };
 
   const registerItemInNavigationArray: NavigationContextReturnValueProps["registerItemInNavigationArray"] =

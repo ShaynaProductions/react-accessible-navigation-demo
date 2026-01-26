@@ -141,9 +141,15 @@ describe("Navigation through single list of buttons", () => {
       ...reqProps,
     };
 
-    const { getByRole } = renderNavigation(buttonListObj, optProps);
-    const { communityButton, referenceButton } =
-      getMultipleButtonsTestElements(getByRole);
+    const { getByRole, getByTestId } = renderNavigation(
+      buttonListObj,
+      optProps,
+    );
+    const { communityButton, referenceButton } = getMultipleButtonsTestElements(
+      getByRole,
+      getByTestId,
+      TEST_ID,
+    );
 
     await userEvent.tab();
     expect(communityButton).toHaveFocus();
@@ -161,9 +167,15 @@ describe("Navigation through single list of buttons", () => {
       ...reqProps,
     };
 
-    const { getByRole } = renderNavigation(buttonListObj, optProps);
-    const { communityButton, aboutButton } =
-      getMultipleButtonsTestElements(getByRole);
+    const { getByRole, getByTestId } = renderNavigation(
+      buttonListObj,
+      optProps,
+    );
+    const { communityButton, aboutButton } = getMultipleButtonsTestElements(
+      getByRole,
+      getByTestId,
+      TEST_ID,
+    );
 
     await userEvent.tab();
     expect(communityButton).toHaveFocus();
@@ -178,10 +190,12 @@ describe("Navigation through single list of buttons", () => {
       ...reqProps,
     };
 
-    const { getByRole } = renderNavigation(buttonListObj, optProps);
+    const { getByRole, getByTestId } = renderNavigation(
+      buttonListObj,
+      optProps,
+    );
     const { communityButton, storiesButton, referenceButton, aboutButton } =
-      getMultipleButtonsTestElements(getByRole);
-
+      getMultipleButtonsTestElements(getByRole, getByTestId, TEST_ID);
     await userEvent.tab();
     expect(communityButton).toHaveFocus();
     await userEvent.keyboard("{ArrowRight}");
@@ -202,9 +216,12 @@ describe("Navigation through single list of buttons", () => {
       ...reqProps,
     };
 
-    const { getByRole } = renderNavigation(buttonListObj, optProps);
+    const { getByRole, getByTestId } = renderNavigation(
+      buttonListObj,
+      optProps,
+    );
     const { communityButton, storiesButton, referenceButton, aboutButton } =
-      getMultipleButtonsTestElements(getByRole);
+      getMultipleButtonsTestElements(getByRole, getByTestId, TEST_ID);
 
     await userEvent.tab();
     expect(communityButton).toHaveFocus();

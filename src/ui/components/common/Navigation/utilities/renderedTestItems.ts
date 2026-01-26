@@ -22,13 +22,46 @@ export const getSingleListTestElements = (getByRole) => {
   };
 };
 
-export const getMultipleButtonsTestElements = (getByRole) => {
+export const getMultipleButtonsTestElements = (
+  getByRole,
+  getByTestId,
+  testId,
+) => {
   return {
     communityButton: getByRole("button", { name: "Community (subnavigation)" }),
+    communityList: getByTestId(`${testId}-community-menu-list`),
+    blogLink: getByRole("link", { name: "Musings (navigation)" }),
+    forumLink: getByRole("link", { name: "Forum (navigation)" }),
     storiesButton: getByRole("button", {
       name: "Tales (subnavigation)",
     }),
     referenceButton: getByRole("button", { name: "Reference (subnavigation)" }),
     aboutButton: getByRole("button", { name: "About (subnavigation)" }),
+    storiesList: getByTestId(`${testId}-tales-menu-list`),
+    searchButton: getByRole("button", { name: "Search (subnavigation)" }),
+    searchList: getByTestId(`${testId}-search-menu-list`),
+    basicSearchLink: getByRole("link", { name: "Basic Search (navigation)" }),
+    advancedSearchLink: getByRole("link", {
+      name: "Advanced Search (navigation)",
+    }),
+    allStoriesLink: getByRole("link", { name: "All Stories (navigation)" }),
+    allCommentaryLink: getByRole("link", {
+      name: "All Commentary (navigation)",
+    }),
+    findNextStoryButton: getByRole("button", {
+      name: "Find Your Next Story (subnavigation)",
+    }),
+    findNextStoryList: getByTestId(`${testId}-find-next-story-list`),
+    byStorytellerLink: getByRole("link", {
+      name: "By Storyteller (navigation)",
+    }),
+    byEraLink: getByRole("link", { name: "By Era (navigation)" }),
+  };
+};
+
+export const getMultipleLinkTestElements = (getByRole) => {
+  return {
+    homeLink: getByRole("link", { name: "Home (navigation)" }),
+    contactLink: getByRole("link", { name: "Contact Us (navigation)" }),
   };
 };
