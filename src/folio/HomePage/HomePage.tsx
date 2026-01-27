@@ -32,7 +32,7 @@ export function HomePage() {
       <Box cx="latest-release">
         <Heading headingLevel={2}>Latest Release</Heading>
         <Heading headingLevel={3}>
-          Providing Underlying Architecture for List Hopping
+          Navigation Between Components using the Up and Down Arrow Keys
         </Heading>
         <DefinitionList>
           <DefinitionTerm>Article</DefinitionTerm>
@@ -51,7 +51,7 @@ export function HomePage() {
               href="https://github.com/ShaynaProductions/react-accessible-navigation-demo/releases/tag/v0.6.0"
               openInNewTab={true}
             >
-              Setting up for Future Work - Architectural Implementation
+              Up and Down Key Implementation: Navigation Between Components
             </Link>
           </DefinitionDetail>
         </DefinitionList>
@@ -177,6 +177,9 @@ export function HomePage() {
           </ListItem>
 
           <ListItem>
+            <Heading headingLevel={3}>
+              Providing Underlying Architecture for List Hopping
+            </Heading>
             <DefinitionList>
               <DefinitionTerm>Article</DefinitionTerm>
               <DefinitionDetail>
