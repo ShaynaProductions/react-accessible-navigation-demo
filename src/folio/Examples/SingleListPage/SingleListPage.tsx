@@ -11,8 +11,8 @@ export function SingleListPage({ data }) {
       <Text>
         An example showcasing one level of links horizontally aligned. Keyboard
         functionality in the single keyboard handling release implements the
-        following keys: arrow-left, arrow-right, home and end. This example is
-        fully functional.
+        following keys: arrow-left, arrow-right, arrow-down, arrow-up, home and
+        end. This example is fully functional.
       </Text>
       <Box cx="example simple">
         <Navigation id="single-links-demo" label="Single Links Demo">

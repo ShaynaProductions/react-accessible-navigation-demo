@@ -1,72 +1,13 @@
 @layer main {
     nav.vertical-layout {
         min-height: 75%;
-
-        & > ul {
-            border: var(--default-border-width) solid var(--default-border-color);
-            border-bottom-right-radius: var(--default-border-radius);
-            border-top-right-radius: var(--default-border-radius);
-            background-color: var(--default-background);
-            left: 0;
-            padding: calc(var(--sp-px) * 16);
-            min-height: 100%;
-            z-index: 3;
-
-            & > li {
-                &:has(button) {
-                    border-bottom: var(--default-border-width) solid var(--default-border-color);
-
-                    & > ul {
-                        background-color: var(--default-background);
-                    }
-                }
-
-                & button, a[href] {
-                    display: inline-block;
-                    width: 100%;
-                    text-align: left;
-                    height: calc(var(--sp-px) * 32);
-                }
-
-                & ul {
-                    width: 100%;
-                }
-
-                &:has(> :focus){
-                    background-color: var(--purple-3);
-                    border-color: var(--purple-3);
-
-                }
-
-                & button[aria-expanded="true"] {
-                    background-color: var(--purple-3);
-                }
-            }
-        }
+        --active-background: var(--purple-3);
+        --subtle-background: var(--purple-2);
+        --subnav-shift: calc(var(--sp-px) * 24);
+        --background: var(--purple-1);
+        --text-color: var(--purple-12);
 
         & button, & a[href] {
-            border-radius: 0;
-            &:hover,
-            &[data-hovered],
-            &:focus,
-            &[data-focused]{
-               background-color: var(--purple-3);
-                border-color: var(--purple-4);
-            }
-        }
-
-
-        & a[href] {
-            text-decoration: none;
-        }
-
-            &[aria-current='page'] {
-                border-style: dotted;
-                border-color: var(--component-border-color);
-            }
-        }
-
-        & button {
             --button-background: var(--button-ghost-background);
             --button-border-color: var(--button-ghost-border);
             --button-padding: calc(var(--sp-px) * 4);
@@ -77,7 +18,98 @@
                 padding-left: calc(var(--sp-px) * 8);
             }
 
+            &[aria-expanded="true"] svg {
+                top: calc(var(--sp-px) * -3);
+            }
+        }
 
-        
+        & a[href] {
+            text-decoration: none;
+        }
+
+        & a[aria-current='page'] {
+            border-style: dotted;
+            border-color: var(--component-border-color);
+        }
+
+        & > ul {
+
+            left: 0;
+            padding: calc(var(--sp-px) * 16);
+            min-height: 100%;
+
+            & > li {
+                & > button, & > a[href] {
+                    border-bottom-color: var(--gray-2);
+                    border-bottom-right-radius: 0;
+
+                    &[aria-expanded="true"] {
+                        border-bottom-color: var(--purple-4);
+                        border-left-color: var(--purple-4);
+                        background-color: var(--purple-1);
+                    }
+                }
+
+                & button, & a[href] {
+                    --component-link-color-hovered: var(--text-color);
+                    border-left-width: calc(var(--sp-px) * 4);
+                    border-top-left-radius: 0;
+                    border-left-style: solid;
+                    border-left-color: transparent;
+                    border-bottom-style: solid;
+                    border-bottom-width: var(--button-border-width);
+                    outline-style: none;
+                    display: inline-block;
+                    width: 100%;
+                    text-align: left;
+                    height: calc(var(--sp-px) * 32);
+
+                    &:focus, &:hover {
+                        --component-link-background: transparent;
+                        border-left-color: var(--purple-3);
+                        border-bottom-color: var(--purple-3);
+                        color: var(--purple-10);
+                        text-decoration: underline;
+                    }
+                }
+
+                & ul li {
+                    display: inline-block;
+                    padding: calc(var(--sp-px) * 2) 0;
+
+                    &:has([aria-expanded="true"]) > button,
+                    &:has([aria-expanded="true"]) > a[href] {
+                        padding-bottom: calc(var(--sp-px) * 16);
+                    }
+
+                    &:has(:focus), &:has(:hover) {
+                        border-left-color: var(--purple-3);
+
+                    }
+
+                    & button, & a[href] {
+                        display: inline-block;
+                        width: 100%;
+                        text-align: left;
+                        height: calc(var(--sp-px) * 32);
+                        padding-left: var(--subnav-shift);
+                        border-left-width: calc(var(--sp-px) * 4);
+                        border-left-style: solid;
+
+                        border-bottom-left-radius: calc(var(--sp-px) * 4);
+                        border-color: transparent;
+
+                        &:focus-visible {
+                            outline-style: none;
+                        }
+
+                        &:focus, &:hover {
+                            border-left-color: var(--purple-3);
+                            border-bottom-color: var(--purple-3);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

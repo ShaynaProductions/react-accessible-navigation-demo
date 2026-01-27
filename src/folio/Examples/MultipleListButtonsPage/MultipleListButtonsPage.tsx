@@ -13,11 +13,12 @@ export function MultipleListButtonsPage({ data }) {
         of buttons
       </Text>
       <Text>
-        <strong>Note:</strong>Keyboard functionality in the single keyboard
-        handling release implements the following keys: arrow-left, arrow-right,
-        home and end. Use the TAB key to move between lists. Use of the TAB key
-        on a button with an unexpanded list, will result in the focus
-        disappearing.
+        <strong>Note:</strong>Keyboard functionality in the multi component
+        keyboard handling release implements the following keys: arrow-up and
+        arrow-down, along with the previously implemented, left, right, home and
+        end keys. Use the arrow-down and arrow-up keys to move between lists.
+        Use of the TAB key on a button with an unexpanded list, will continue to
+        result in the focus disappearing.
       </Text>
       <Box cx="example complex">
         <Navigation

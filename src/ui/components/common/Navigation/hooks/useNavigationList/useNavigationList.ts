@@ -4,7 +4,7 @@ import type { FocusableElementType } from "@/ui/components/common";
 import { returnTrueElementOrUndefined } from "@/ui/utilities";
 
 import { NavigationListContext } from "../../providers";
-import type { ControllingElementType } from "../../utilities/types";
+import type { ControllingElementType } from "../../utilities";
 import type {
   UseNavigationListInternalProps,
   UseNavigationListReturnProps,
@@ -23,24 +23,24 @@ export function useNavigationList(): UseNavigationListReturnProps {
 
   const _getCurrentIndex: UseNavigationListInternalProps["_getCurrentIndex"] =
     useCallback(
-      (currentlyFocusedEl: FocusableElementType): number => {
+      (currentlyFocusedEl): number => {
         return currentListItems.indexOf(currentlyFocusedEl);
       },
       [currentListItems],
     );
 
-  const _shiftFocus: UseNavigationListInternalProps["_shiftFocus"] = (
+  const shiftFocus: UseNavigationListReturnProps["shiftFocus"] = (
     focusableEl,
   ) => {
     focusableEl.focus({ preventScroll: true });
   };
 
   const setFirstFocus: UseNavigationListReturnProps["setFirstFocus"] = () => {
-    _shiftFocus(currentListItems[0]);
+    shiftFocus(currentListItems[0]);
   };
 
   const setLastFocus: UseNavigationListReturnProps["setLastFocus"] = () => {
-    _shiftFocus(currentListItems[currentListItems.length - 1]);
+    shiftFocus(currentListItems[currentListItems.length - 1]);
   };
 
   const setNextFocus: UseNavigationListReturnProps["setNextFocus"] = (
@@ -50,7 +50,7 @@ export function useNavigationList(): UseNavigationListReturnProps {
     if (newIndex >= currentListItems.length) {
       setFirstFocus();
     } else {
-      _shiftFocus(currentListItems[newIndex]);
+      shiftFocus(currentListItems[newIndex]);
     }
   };
 
@@ -61,7 +61,7 @@ export function useNavigationList(): UseNavigationListReturnProps {
     if (newIndex < 0) {
       setLastFocus();
     } else {
-      _shiftFocus(currentListItems[newIndex]);
+      shiftFocus(currentListItems[newIndex]);
     }
   };
 
@@ -73,5 +73,6 @@ export function useNavigationList(): UseNavigationListReturnProps {
     setLastFocus,
     setNextFocus,
     setPreviousFocus,
+    shiftFocus,
   };
 }

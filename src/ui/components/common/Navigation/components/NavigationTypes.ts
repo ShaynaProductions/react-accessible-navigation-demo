@@ -59,9 +59,3 @@ export interface NavigationListProps extends ListProps {
 export interface SubNavigationProps extends Omit<NavigationItemProps, "href"> {
   children: React.ReactNode;
 }
-
-export interface NavigationWrapperProps extends Omit<BaseProps, "testid"> {
-  children: React.ReactNode;
-  label: string;
-  parentRef?: React.RefObject<ControllingElementType>;
-}
